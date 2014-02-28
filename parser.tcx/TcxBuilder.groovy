@@ -1,0 +1,21 @@
+/**
+ <Trackpoint>
+ <Time>2012-01-21T13:42:26.000Z</Time>
+ <Position>
+ <LatitudeDegrees>38.900338439270854</LatitudeDegrees>
+ <LongitudeDegrees>-92.3433980718255</LongitudeDegrees>
+ </Position>
+ <AltitudeMeters>213.39999389648438</AltitudeMeters>
+ <DistanceMeters>0.0</DistanceMeters>
+ <HeartRateBpm>
+ <Value>87</Value>
+ </HeartRateBpm>
+ <Cadence>0</Cadence>
+ <Extensions>
+ <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+ <Speed>0.0</Speed>
+ <Watts>0</Watts>
+ </TPX>
+ </Extensions>
+ </Trackpoint>
+ **/
