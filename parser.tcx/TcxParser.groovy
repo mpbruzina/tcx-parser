@@ -64,20 +64,29 @@ def dataPoints = []
 
 //Trying to edit the elements in place...
 
+def previous = node.Activities.Activity[0].Lap[0].Track[0].Trackpoint[0].Time.text()
+def current
+
 def times = node.Activities.Activity[0].Lap[0].Track[0].each {
-    println "-----\nbefore ${it.Time.text()}"
-//    it.Time.text = new Date().parse("yyyy-MM-dd'T'hh:mm:ss",it.Time.text())
-    def newDate = new Date().parse("yyyy-MM-dd'T'hh:mm:ss.SSS", it.Time.text())
+    println "Doing some math..."
+    println "Previous: ${previous}"
+
+    current = it.Time.text()
+    println "Current: ${current}"
+
+    def currentDate = new Date().parse("yyyy-MM-dd'T'hh:mm:ss.SSS", it.Time.text())
+    def previousDate = new Date().parse("yyyy-MM-dd'T'hh:mm:ss.SSS", previous)
     use(TimeCategory) {
-        newDate -= 250.millisecond
+        currentDate.time = ((currentDate.time - previousDate.time) * (0.9)) + previousDate.time
     }
-    println "after ${newDate.toTimestamp()}"
+    println "after ${currentDate.toTimestamp()}"
 
+    previous = current
 }
 
-times.each { currentTime ->
-    currentTime = Date.parse(currentTime).minus(250)
-}
+//times.each { currentTime ->
+//    currentTime = Date.parse(currentTime).minus(250)
+//}
 
 
 println 'done'
